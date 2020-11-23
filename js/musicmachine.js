@@ -37,7 +37,7 @@ $(document).ready(function () {
             keyboardKey.data("octave", octave);
 
             // Make this key run a function when clicked
-            keyboardKey.click(playKey);
+            keyboardKey.click(keyClicked);
 
             // Text for display
             keyboardKey.text(`${note}${octave}`);
@@ -94,16 +94,17 @@ $(document).ready(function () {
         // Split the string into an array where index 0
         // holds the note, and index 1 holds the octave
         var pieces = recordedNote.split(",");
-        var note = pieces[0];
-        var octave = pieces[1];
+        var note = pieces[0]; // "C"
+        var octave = pieces[1]; // "3"
         // Put the note and octave on the screen
         $("#keyPlaying").text(note + octave);
         // Find all keys and remove the class that gives
         // active keys a dropshadow, change selection to
         // the one that matches the note being played,
-        // and reapply the class to just that one
+        // and reapply the class to just that one span
         $("span.key").removeClass("playing")
-            .filter(`#${note}${octave}`).addClass("playing");
+            .filter(`#${note}${octave}`)
+            .addClass("playing");
         // Play the recorded note
         playNote(note, octave);
     }
@@ -130,7 +131,7 @@ $(document).ready(function () {
         }, arrayOfNotes.length * 500);
     }
 
-    function playKey() {
+    function keyClicked() {
         // Which span was clicked?
         var keyPlayed = $(this);
         // Get its data-note attribute
