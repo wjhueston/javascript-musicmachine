@@ -5,7 +5,7 @@ $(document).ready(function () {
     // Colors for the keys
     var allColors = ["#99CC00", "#0099FF", "#9933CC", "#CC0066", "#CC0033", "#FF3300", "#FF6600"];
     // Notes in the music scale
-    var allNotes = "CDEFGAB";
+    var allNotes = ["C", "D", "E", "F", "G", "A", "B"];
     // Makes keys for these octaves
     var MIN_OCTAVE = 3, MAX_OCTAVE = 5;
 
@@ -73,7 +73,8 @@ $(document).ready(function () {
         // toggle the boolean flag variable
         isRecording = !isRecording;
         // toggle the class of the button and update its text
-        $("#recordButton").toggleClass("btn-dark btn-light").text(isRecording ? "Stop Recording" : "Start Recording");
+        $("#recordButton").toggleClass("btn-dark btn-light")
+            .text(isRecording ? "Stop Recording" : "Start Recording");
 
         // if recording has just started,
         if (isRecording) {
