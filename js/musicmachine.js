@@ -7,7 +7,7 @@ $(document).ready(function () {
     // Notes in the music scale
     var allNotes = ["C", "D", "E", "F", "G", "A", "B"];
     // Makes keys for these octaves
-    var MIN_OCTAVE = 3, MAX_OCTAVE = 5;
+    const MIN_OCTAVE = 3, MAX_OCTAVE = 5;
 
     // Create the grid of keyboard keys
     for (var octave = MIN_OCTAVE; octave <= MAX_OCTAVE; octave++) {
