@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // Uses the audiosynth library to create an instrument
     // Other options include "piano", "acoustic", and "edm"
-    var organ = Synth.createInstrument("organ");
+    var organ = Synth.createInstrument("piano");
     // Colors for the keys
     var allColors = ["#99CC00", "#0099FF", "#9933CC", "#CC0066", "#CC0033", "#FF3300", "#FF6600"];
     // Notes in the music scale
@@ -62,8 +62,8 @@ $(document).ready(function () {
     // Assign functions to the other buttons
     $("#recordButton").click(toggleRecording);
     $("#clearButton").click(clearRecording);
-
-
+    $("#songOneButton").click(playSongOne)
+    $("#songTwoButton").click(playSongTwo)
     function clearRecording() {
         // create a new, empty array
         recordedNotes = [];
@@ -153,4 +153,143 @@ $(document).ready(function () {
         // to play the desired note for half a second
         organ.play(note, octave, 0.5);
     }
-});
+
+    function playSongOne(){
+        var songOne = ["B,4",
+            "B,4",
+            "C,5",
+            "D,5",
+            "D,5",
+            "C,5",
+            "B,4",
+            "A,4",
+            "G,4",
+            "G,4",
+            "A,4",
+            "B,4",
+            "B,4",
+            "A,4",
+            "A,4",
+            "B,4",
+            "B,4",
+            "C,5",
+            "D,5",
+            "D,5",
+            "C,5",
+            "B,4",
+            "A,4",
+            "G,4",
+            "G,4",
+            "A,4",
+            "B,4",
+            "A,4",
+            "G,4",
+            "G,4",
+            "A,4",
+            "A,4",
+            "B,4",
+            "G,4",
+            "A,4",
+            "B,4",
+            "C,5",
+            "B,4",
+            "G,4",
+            "A,4",
+            "B,4",
+            "C,5",
+            "B,4",
+            "A,4",
+            "G,4",
+            "A,4",
+            "D,5",
+            "B,4",
+            "B,4",
+            "C,5",
+            "D,5",
+            "D,5",
+            "C,5",
+            "B,4",
+            "A,4",
+            "G,4",
+            "G,4",
+            "A,4",
+            "B,4",
+            "A,4",
+            "G,4",
+            "G,4"
+        ]
+        songOne.forEach(function(entry, index){
+            setTimeout(function(){
+                playRecordedNote(entry);}, index *500);
+
+            });
+        setTimeout(function(){
+            $("span.key").removeClass("playing");
+            $("#keyPlaying").html("&nbsp;");
+        }, songOne.length * 500);
+        }
+    function playSongTwo(){
+        var songTwo = ["E,4",
+            "E,4",
+            "E,4",
+            "E,4",
+            "E,4",
+            "E,4",
+            "E,4",
+            "G,4",
+            "C,4",
+            "D,4",
+            "E,4",
+            "F,4",
+            "F,4",
+            "F,4",
+            "F,4",
+            "F,4",
+            "E,4",
+            "E,4",
+            "E,4",
+            "E,4",
+            "E,4",
+            "D,4",
+            "D,4",
+            "E,4",
+            "D,4",
+            "G,4",
+            "E,4",
+            "E,4",
+            "E,4",
+            "E,4",
+            "E,4",
+            "E,4",
+            "E,4",
+            "G,4",
+            "C,4",
+            "D,4",
+            "E,4",
+            "F,4",
+            "F,4",
+            "F,4",
+            "F,4",
+            "F,4",
+            "E,4",
+            "E,4",
+            "E,4",
+            "E,4",
+            "G,4",
+            "G,4",
+            "F,4",
+            "D,4",
+            "C,4"
+        ]
+        songTwo.forEach(function(entry, index){
+            setTimeout(function(){
+                playRecordedNote(entry);}, index *500);
+
+        });
+        setTimeout(function(){
+            $("span.key").removeClass("playing");
+            $("#keyPlaying").html("&nbsp;");
+        }, songOne.length * 500);
+    }
+    }
+);
